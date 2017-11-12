@@ -29,11 +29,7 @@ public class Test {
 		SingletonDemo4 instance7 = SingletonDemo4.Instance;
 		SingletonDemo4 instance8 = SingletonDemo4.Instance;
 		System.out.println(instance7==instance8);
-		System.out.println(useTime(SingletonDemo1.class));
-		
-		
-	}
-	public static long useTime(Object object) throws InterruptedException{
+	
 		int threadNum = 10;
 		final CountDownLatch countDownLatch = new CountDownLatch(threadNum);
 		long start = System.currentTimeMillis(); 
@@ -45,7 +41,7 @@ public class Test {
 				public void run() {
 					// TODO Auto-generated method stub
 					for(int i=0;i<1000000;i++){
-						Object instance = ((SingletonDemo1) object).getInstance();
+						Object instance = SingletonDemo1.getInstance();
 					}
 					countDownLatch.countDown();
 				}
@@ -54,8 +50,9 @@ public class Test {
 		
 		countDownLatch.await();
 		long end = System.currentTimeMillis();
+		System.out.println("用时："+(end-start));
 		
-		return (end-start);
+
 	}
 
 }
