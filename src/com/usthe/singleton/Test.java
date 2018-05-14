@@ -13,6 +13,7 @@ import java.util.concurrent.CountDownLatch;
  * @site usthe.com
  */
 public class Test {
+
 	public static void main(String[] args) throws InterruptedException {
 		SingletonDemo1 instance1 = SingletonDemo1.getInstance();
 		SingletonDemo1 instance2 = SingletonDemo1.getInstance();
